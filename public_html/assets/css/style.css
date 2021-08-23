@@ -5,32 +5,6 @@
 * License: https://bootstrapmade.com/license/
 */
 
-/*
-  SkillTreeForest Additions
-*/
-:root {
-  /* This color scheme was extracted from the tree colors on the SkillTreeForest logo */
-  --color-primary: #254653;
-  --color-success: #2b9c8e;
-}
-
-.text-primary {
-  color: var(--color-primary) !important;
-}
-
-.text-success {
-  color: var(--color-success) !important;
-}
-
-.bg-success, .bg-success:hover {
-  color: #fff !important;
-  background-color: var(--color-success) !important;
-}
-
-.bg-success:hover {
-  filter: brightness(0.85);
-}
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -49,6 +23,7 @@ a {
 }
 
 a:hover {
+  color: #717ff5;
   text-decoration: none;
 }
 
@@ -207,7 +182,6 @@ section {
 }
 
 .header .logo img {
-  height: 40px;
   max-height: 40px;
   margin-right: 6px;
 }
@@ -252,6 +226,7 @@ section {
   font-family: "Nunito", sans-serif;
   font-size: 16px;
   font-weight: 700;
+  color: #013289;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -262,10 +237,21 @@ section {
   margin-left: 5px;
 }
 
+.navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
+  color: #4154f1;
+}
+
 .navbar .getstarted {
+  background: #4154f1;
   padding: 8px 20px;
   margin-left: 30px;
   border-radius: 4px;
+  color: #fff;
+}
+
+.navbar .getstarted:hover {
+  color: #fff;
+  background: #5969f3;
 }
 
 .navbar .dropdown ul {
@@ -297,6 +283,10 @@ section {
 
 .navbar .dropdown ul a i {
   font-size: 12px;
+}
+
+.navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
+  color: #4154f1;
 }
 
 .navbar .dropdown:hover > ul {
@@ -389,6 +379,10 @@ section {
   color: #012970;
 }
 
+.navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
+  color: #4154f1;
+}
+
 .navbar-mobile .getstarted {
   margin: 15px;
 }
@@ -417,6 +411,10 @@ section {
   font-size: 12px;
 }
 
+.navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
+  color: #4154f1;
+}
+
 .navbar-mobile .dropdown > .dropdown-active {
   display: block;
 }
@@ -435,7 +433,7 @@ section {
   margin: 0;
   font-size: 48px;
   font-weight: 700;
-  color: var(--color-success);
+  color: #012970;
 }
 
 .hero h2 {
@@ -451,8 +449,8 @@ section {
   border-radius: 4px;
   transition: 0.5s;
   color: #fff;
-  background: var(--color-success);
-  box-shadow: 0px 5px 30px rgba(65, 241, 162, 0.4);
+  background: #4154f1;
+  box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
 }
 
 .hero .btn-get-started span {
@@ -1187,6 +1185,10 @@ section {
   line-height: 0;
 }
 
+.portfolio .portfolio-wrap .portfolio-links a:hover {
+  background: #5969f3;
+}
+
 .portfolio .portfolio-wrap:hover img {
   transform: scale(1.1);
 }
@@ -1637,6 +1639,10 @@ section {
   box-shadow: none;
   font-size: 14px;
   border-radius: 0;
+}
+
+.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+  border-color: #4154f1;
 }
 
 .contact .php-email-form input {
