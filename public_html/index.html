@@ -600,7 +600,7 @@
   <script type="text/javascript">
     function submitToAPI(e) {
       e.preventDefault();
-      var URL = "https://yfb87gv9ij.execute-api.us-east-1.amazonaws.com";
+      var URL = "https://yfb87gv9ij.execute-api.us-east-1.amazonaws.com/contact-us";
 
       var Namere = /[A-Za-z]{1}[A-Za-z]/;
       if (!Namere.test($("#name-input").val())) {
@@ -640,7 +640,7 @@
 
       $.ajax({
         type: "POST",
-        url: "https://yfb87gv9ij.execute-api.us-east-1.amazonaws.com/",
+        url: url,
         dataType: "json",
         crossDomain: "true",
         contentType: "application/json; charset=utf-8",
