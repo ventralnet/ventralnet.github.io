@@ -602,61 +602,76 @@
       e.preventDefault();
       var URL = "https://pdzl10084i.execute-api.us-east-1.amazonaws.com/CORS";
 
+      let error; 
+
+      const nameInput = $("#name-input");
+      const emailInput = $("#email-input");
+      const subjectInput = $("#subject-input");
+      const messageInput = $("#message-input");
+
+      nameInput.removeClass('is-invalid');
+      emailInput.removeClass('is-invalid');
+      subjectInput.removeClass('is-invalid');
+      messageInput.removeClass('is-invalid');
+
       var Namere = /[A-Za-z]{1}[A-Za-z]/;
-      if (!Namere.test($("#name-input").val())) {
-        alert("Name can not less than 2 char");
-        return;
+      if (!Namere.test(nameInput.val())) {
+        error = "Name can not less than 2 char";
+        nameInput.addClass('is-invalid');
       }
 
-      if ($("#email-input").val() == "") {
-        alert("Please enter your email id");
-        return;
+      if (emailInput.val() == "") {
+        error = "Please enter your email id";
+        emailInput.addClass('is-invalid');
       }
-      if ($("#subject-input").val() == "") {
-        alert("Please enter a subject");
-        return;
+      if (subjectInput.val() == "") {
+        error = "Please enter a subject";
+        subjectInput.addClass('is-invalid');
       }
-      if ($("#message-input").val() == "") {
-        alert("Please enter a message");
-        return;
+      if (messageInput.val() == "") {
+        error = "Please enter a message";
+        messageInput.addClass('is-invalid');
       }
 
       var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
-      if (!reeamil.test($("#email-input").val())) {
-        alert("Please enter valid email address");
-        return;
+      if (!reeamil.test(emailInput.val())) {
+        error = "Please enter valid email address";
+        emailInput.addClass('is-invalid');
       }
 
-      var name = $("#name-input").val();
-      var email = $("#email-input").val();
-      var subject = $("#subject-input").val();
-      var message = $("#message-input").val();
-      var data = {
-        name: name,
-        email: email,
-        subject: subject,
-        message: message,
-      };
+      if (error) {
+        $('.error-message').text(error);
+        $('.error-message').show();
+      } else {
+        var name = nameInput.val();
+        var email = emailInput.val();
+        var subject = subjectInput.val();
+        var message = messageInput.val();
+        var data = {
+          name: name,
+          email: email,
+          subject: subject,
+          message: message,
+        };
 
-      $.ajax({
-        type: "POST",
-        url: URL,
-        dataType: "json",
-        crossDomain: "true",
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify(data),
+        $.ajax({
+          type: "POST",
+          url: URL,
+          dataType: "json",
+          crossDomain: "true",
+          contentType: "application/json; charset=utf-8",
+          data: JSON.stringify(data),
 
-        success: function () {
-          // clear form and show a success message
-          alert("Successfull");
-          document.getElementById("contact-form").reset();
-          location.reload();
-        },
-        error: function () {
-          // show an error message
-          alert("UnSuccessfull");
-        }
-      });
+          success: function () {
+            // clear form and show a success message
+            document.getElementById("contact-form").reset();
+            location.reload();
+          },
+          error: function () {
+            $('.error-message').show();
+          }
+        });
+      }
     }
   </script>
 
