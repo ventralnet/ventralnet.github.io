@@ -2,3 +2,8 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.fill-button:hover {
+  color: #fff;
+  background-color: #5969f3;
+}
